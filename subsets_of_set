@@ -1,12 +1,7 @@
 import itertools
 U = {'👻', '🕵', '🔺', '🐉', '🐍', '🦂', '🔥', '🌻', '🐙', '🌌'}
 result = set()
-s = set()
 def findsubsets(s, n):
-    return list(itertools.combinations(s, n))
+    return frozenset(itertools.combinations(s, n))
 for i in range(11):
-    s = findsubsets(U, i)
-    result = result.union(s)
-print(result)
-
-print(len(result))
+    result = result.union(findsubsets(U, i))
